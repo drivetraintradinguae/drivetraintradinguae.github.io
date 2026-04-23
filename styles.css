@@ -188,40 +188,37 @@ body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
 
 /* =========================================================
-   HEADER / NAV — sticky, houses logo + nav + language + menu
+   HEADER / NAV — sticky, DARK theme so the white-on-dark logo
+   sits naturally. Unified with the dark topbar above.
    ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: saturate(180%) blur(8px);
-  -webkit-backdrop-filter: saturate(180%) blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--paper);
 }
 .site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--s-3);
-  padding: 0.6rem var(--s-4);
+  padding: 0.5rem var(--s-4);
 }
-@media (min-width: 768px) { .site-header__inner { padding: 0.75rem var(--s-5); } }
+@media (min-width: 768px) { .site-header__inner { padding: 0.6rem var(--s-5); } }
 
-.brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); }
-.brand:hover { color: var(--ink); }
+.brand { display: flex; align-items: center; gap: 0.6rem; color: var(--paper); }
+.brand:hover { color: var(--paper); }
 .brand__logo {
-  height: 44px;
+  height: 40px;
   width: auto;
-  /* Logo is a negative (light-on-dark) asset. Force it dark on the white
-     header by inverting. Remove filter if/when a dark-on-light logo is used. */
-  filter: invert(1) brightness(0.95);
+  /* Logo is natively white-on-dark; no filter needed on dark header. */
 }
 .brand__logo--footer {
-  height: 40px;
-  filter: none; /* logo sits on dark footer naturally */
+  height: 44px;
 }
-@media (min-width: 768px) { .brand__logo { height: 48px; } }
+@media (min-width: 768px) { .brand__logo { height: 46px; } }
 
 .nav {
   display: none;
@@ -229,12 +226,13 @@ body { top: 0 !important; }
   gap: var(--s-5);
 }
 .nav a {
-  color: var(--ink);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  transition: color 150ms ease;
 }
-.nav a:hover { color: var(--red); }
+.nav a:hover { color: var(--paper); }
 .nav__cta {
   background: var(--red);
   color: var(--paper) !important;
@@ -251,19 +249,19 @@ body { top: 0 !important; }
   gap: var(--s-2);
 }
 
-/* Language picker (custom, translate-proof) */
+/* Language picker — restyled for DARK header context */
 .lang { position: relative; }
 .lang__btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
-  background: var(--paper);
-  border: 1px solid var(--line-2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  color: var(--ink);
+  color: var(--paper);
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: border-color 150ms ease, background 150ms ease;
@@ -271,11 +269,11 @@ body { top: 0 !important; }
 .lang__btn:hover,
 .lang__btn[aria-expanded="true"] {
   border-color: var(--red);
-  background: var(--red-soft);
+  background: rgba(185, 28, 28, 0.2);
 }
-.lang__globe { width: 16px; height: 16px; color: var(--red); flex-shrink: 0; }
+.lang__globe { width: 15px; height: 15px; color: #fca5a5; flex-shrink: 0; }
 .lang__label { white-space: nowrap; }
-.lang__chev { width: 9px; height: 5px; color: var(--ink-muted); flex-shrink: 0; }
+.lang__chev { width: 9px; height: 5px; color: rgba(255,255,255,0.7); flex-shrink: 0; }
 
 .lang__list {
   position: absolute;
@@ -302,7 +300,7 @@ body { top: 0 !important; }
 }
 .lang__list li:hover { background: var(--red-soft); color: var(--red); }
 
-/* Hamburger */
+/* Hamburger — white lines on dark header */
 .nav-toggle {
   display: inline-flex;
   flex-direction: column;
@@ -311,33 +309,33 @@ body { top: 0 !important; }
   width: 40px;
   height: 40px;
   background: transparent;
-  border: 1px solid var(--line-2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius);
   cursor: pointer;
   padding: 0 8px;
 }
-.nav-toggle span { display: block; height: 2px; background: var(--ink); width: 100%; }
+.nav-toggle span { display: block; height: 2px; background: var(--paper); width: 100%; }
 @media (min-width: 960px) { .nav-toggle { display: none; } }
 
-/* MOBILE NAV DRAWER — bug fix: never visible unless toggled,
-   and never visible on desktop no matter what */
+/* MOBILE NAV DRAWER — dark, matching the header */
 .mobile-nav {
   display: flex;
   flex-direction: column;
   padding: var(--s-4);
-  background: var(--paper);
-  border-top: 1px solid var(--line);
+  background: var(--ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .mobile-nav[hidden] { display: none !important; }
 @media (min-width: 960px) { .mobile-nav { display: none !important; } }
 .mobile-nav a {
   padding: 0.875rem 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
 }
+.mobile-nav a:hover { color: var(--paper); }
 .mobile-nav a:last-child { border-bottom: none; }
-.mobile-nav .nav__cta { margin-top: var(--s-3); text-align: center; border: none; }
+.mobile-nav .nav__cta { margin-top: var(--s-3); text-align: center; border: none; color: var(--paper); }
 
 /* =========================================================
    HERO

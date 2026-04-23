@@ -163,7 +163,7 @@ h4 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; letter-sp
    TOP BAR
    ========================================================= */
 .topbar {
-  background: #000000;
+  background: var(--ink-deep);
   color: var(--paper);
   font-size: 0.8rem;
   padding: 0.5rem 0;
@@ -188,16 +188,15 @@ body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
 
 /* =========================================================
-   HEADER / NAV — sticky, BLACK theme. Matches the logo's own
-   black background so the logo PNG sits seamlessly with no
-   visible rectangle seam. If you swap in a transparent-PNG
-   logo later, change this back to var(--ink).
+   HEADER / NAV — sticky, dark brand navy. The horizontal logo
+   is white-on-transparent, so it inherits this background with
+   no seam regardless of what color we pick here.
    ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #000000;
+  background: var(--ink);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--paper);
 }
@@ -213,14 +212,14 @@ body { top: 0 !important; }
 .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--paper); }
 .brand:hover { color: var(--paper); }
 .brand__logo {
-  height: 40px;
+  height: 44px;
   width: auto;
-  /* Logo is natively white-on-dark; no filter needed on dark header. */
+  /* Logo is natively white-on-transparent; inherits the dark header background */
 }
 .brand__logo--footer {
-  height: 44px;
+  height: 52px;
 }
-@media (min-width: 768px) { .brand__logo { height: 46px; } }
+@media (min-width: 768px) { .brand__logo { height: 50px; } }
 
 .nav {
   display: none;
@@ -319,12 +318,12 @@ body { top: 0 !important; }
 .nav-toggle span { display: block; height: 2px; background: var(--paper); width: 100%; }
 @media (min-width: 960px) { .nav-toggle { display: none; } }
 
-/* MOBILE NAV DRAWER — matches the black header */
+/* MOBILE NAV DRAWER — matches the dark header */
 .mobile-nav {
   display: flex;
   flex-direction: column;
   padding: var(--s-4);
-  background: #000000;
+  background: var(--ink);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .mobile-nav[hidden] { display: none !important; }

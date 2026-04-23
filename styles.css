@@ -163,7 +163,7 @@ h4 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; letter-sp
    TOP BAR
    ========================================================= */
 .topbar {
-  background: var(--ink-deep);
+  background: #000000;
   color: var(--paper);
   font-size: 0.8rem;
   padding: 0.5rem 0;
@@ -188,14 +188,16 @@ body { top: 0 !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
 
 /* =========================================================
-   HEADER / NAV — sticky, DARK theme so the white-on-dark logo
-   sits naturally. Unified with the dark topbar above.
+   HEADER / NAV — sticky, BLACK theme. Matches the logo's own
+   black background so the logo PNG sits seamlessly with no
+   visible rectangle seam. If you swap in a transparent-PNG
+   logo later, change this back to var(--ink).
    ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
+  background: #000000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--paper);
 }
@@ -317,12 +319,12 @@ body { top: 0 !important; }
 .nav-toggle span { display: block; height: 2px; background: var(--paper); width: 100%; }
 @media (min-width: 960px) { .nav-toggle { display: none; } }
 
-/* MOBILE NAV DRAWER — dark, matching the header */
+/* MOBILE NAV DRAWER — matches the black header */
 .mobile-nav {
   display: flex;
   flex-direction: column;
   padding: var(--s-4);
-  background: var(--ink);
+  background: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .mobile-nav[hidden] { display: none !important; }
